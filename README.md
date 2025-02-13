@@ -9,7 +9,7 @@
    * 通过USART1将调试信息打印到串口助手
 ## 示例条件：
    * OneNet平台（数据：LED bool wr, humi int32 r , temp int32 r）
-   * ESP8266
+   * ESP8266（有支持TCP透传的固件就行）
    * STM32F103ZET6（正点原子 战舰）
    * DHT11
 ## 交互情境：
