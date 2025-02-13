@@ -5,7 +5,7 @@
    * OneNet平台下发属性设置(MQTT接入)
    * OneNet平台下发属性请求(MQTT接入)
 ## 调试信息：
-![sampling](./sampling.png)
+![sampling](https://github.com/px-px-px/OneNet_STM32_ESP8266-AT/blob/main/图片文件夹/sampling.png)
 ## 示例条件：
    * OneNet平台（数据：LED bool wr, humi int32 r , temp int32 r）
    * ESP8266
