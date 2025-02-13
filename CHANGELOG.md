@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 待修复：无间隔读取DHT11可能会出现各种通信错误的问题
 - 待修复：长时间待机心跳机制出错，而导致断连的问题
 
-- ## [1.2.0] - 2025-02-14
+## [1.2.0] - 2025-02-14
 ### Added
 - 增加了通信质量检测，当通信质量极差时设备将重启以解决问题
 
