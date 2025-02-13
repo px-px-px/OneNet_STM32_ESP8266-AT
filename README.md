@@ -6,6 +6,7 @@
    * OneNet平台下发属性请求(MQTT接入)
 ## 调试信息：
 ![public/image/sampling.png](https://github.com/px-px-px/OneNet_STM32_ESP8266-AT/blob/master/sampling.png)
+   * 通过USART1将调试信息打印到串口助手
 ## 示例条件：
    * OneNet平台（数据：LED bool wr, humi int32 r , temp int32 r）
    * ESP8266
