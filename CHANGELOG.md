@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 待修复：无间隔读取DHT11可能会出现各种通信错误的问题
 - 待修复：长时间待机心跳机制出错，而导致断连的问题
 - 待修复：可能出现设备上传数据，平台给出如下错误
-`<{"id":null,"code":2402,"msg":"request format error"}>`
+`{"id":null,"code":2402,"msg":"request format error"}`
   此时，平台无法和设备正常交互（请求属性和设置属性都无响应），但设备中仍然为是正常交互中，不会触发重启
 
 ## [1.2.0] - 2025-02-14
