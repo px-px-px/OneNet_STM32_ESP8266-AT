@@ -19,8 +19,11 @@ void OneNet_RevPro(unsigned char *cmd);
 
 /*²¹³ä*/
 void TIM_Tool_Init(int t1, int t2, int t3, int t4);
+void Interaction_Succeed(void);
+void Interaction_Failure(void);
 void MQTT_Common_Subscribe(void);
 void MQTT_Attribute_Reporting(void);
 void OneNet_Unify(void);
+
 
 #endif

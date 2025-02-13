@@ -61,6 +61,9 @@ char key[48];
 
 extern unsigned char esp8266_buf[512];
 
+void Interaction_Succeed(void);
+void Interaction_Failure(void);
+
 
 /*
 ************************************************************
@@ -824,10 +827,12 @@ void MQTT_Attribute_Reporting(void)
 	{
 		OneNet_RevPro(dataPtr);				/* 解析响应 */
 		printf("设备属性上报 成功!\r\n");
+		Interaction_Succeed();						/* 交互成功 */
 	}
 	else
 	{
 		printf("设备属性上报 上传失败!\r\n");
+		Interaction_Failure();						/* 交互失败 */
 	}
 	printf("===================\r\n");
 	printf("\r\n");
@@ -934,15 +939,18 @@ void MQTT_Request_Response(cJSON* Request)
 			printf("-------------------\r\n");
 			printf("响应属性请求成功!\r\n");
 			printf("-------------------\r\n");
+			Interaction_Succeed();						/* 交互成功 */
 		}
 		else
 		{
 			printf("错误: 最新数据包组包 失败!\r\n");
+			Interaction_Failure();						/* 交互失败 */
 		}
 	}
 	else
 	{
 		printf("错误: 获取最新数据包 失败!\r\n");
+		Interaction_Failure();						/* 交互失败 */
 	}
 	printf("===================\r\n");
 	printf("\r\n");
@@ -1043,19 +1051,126 @@ void MQTT_SET_Response(cJSON* SET)
 			printf("-------------------\r\n");
 			printf("响应属性设置成功!\r\n");
 			printf("-------------------\r\n");
+			Interaction_Succeed();						/* 交互成功 */
 		}
 		else
 		{
 			printf("错误: 获取属性设置响应组包 失败!\r\n");
+			Interaction_Failure();						/* 交互失败 */
 		}
 	}
 	else
 	{
 		printf("错误: 获取属性设置响应包 失败!\r\n");
+		Interaction_Failure();						/* 交互失败 */
 	}
 	printf("===================\r\n");
 	printf("\r\n");
 	free(SET_JSON);												/* 释放空间 */
+}
+
+//该工程专用
+//平台交互奖惩模块
+//该模块有两个函数，一个交互成功，一个交互失败
+//主要用于判断当前设备与平台交互是否正常，每次交互失败都会有惩罚，每次交互成功也有奖励
+//如果多次交互失败导致奖惩分过低将会被设备识别为不正常通信，设备将尝试重启以解决问题
+//当前机制：
+//奖惩分：0--100，初始为100
+//奖惩分低于60分或者连续3次交互失败将进入惩罚机制
+//惩罚机制中交互成功不再有奖励分，但交互失败仍然有惩罚分
+//连续3次交互成功将退出惩罚并且将奖惩分恢复至60分
+//当惩罚分降到0后设备重启
+//在正常状态下交互成功奖励1分，交互失败惩罚8分
+
+
+uint8_t punishment = 0;			//惩罚状态标志位
+uint8_t score = 100;			//奖惩分
+uint8_t succeed = 0; 			//连续成功
+uint8_t failure = 0; 			//连续失败
+
+//交互成功
+void Interaction_Succeed(void)
+{
+	if(punishment)				//在惩罚状态
+	{	
+		/* 连续状态改变 */
+		succeed ++;				
+		failure = 0;
+		
+		/*连续三次成功*/
+		if(succeed >= 3)		
+		{
+			punishment = 0;
+			score = 60;
+		}
+	}
+	else						//在正常状态
+	{
+		/* 连续状态改变 */
+		succeed ++;				
+		failure = 0;
+		
+		/* 加分 */
+		if(score < 100)			
+		{
+			score ++;
+		}
+	}
+}
+
+//交互失败
+void Interaction_Failure(void)
+{
+	if(punishment)				//在惩罚状态
+	{	
+		/* 连续状态改变 */		
+		succeed = 0;
+		failure ++;
+		
+		/* 减分 */
+		if(score > 8)			
+		{
+			score -= 8;
+		}
+		else
+		{
+			printf("---------------------\r\n");
+			printf("错误: 当前通信质量极差!\r\n");
+			printf("正在尝试重启设备!\r\n");
+			printf("---------------------\r\n");
+			HAL_NVIC_SystemReset();	//分减到0，重启设备
+		}
+	}
+	else						//在正常状态
+	{
+		/* 连续状态改变 */		
+		succeed = 0;
+		failure ++;
+		
+		/* 减分 */
+		if(score > 8)			
+		{
+			score -= 8;
+		}
+		else
+		{
+			printf("---------------------\r\n");
+			printf("错误: 当前通信质量极差!\r\n");
+			printf("正在尝试重启设备!\r\n");
+			printf("---------------------\r\n");
+			HAL_NVIC_SystemReset();	//分减到0，重启设备
+		}
+		
+		/*连续三次失败或低于60分*/
+		if(failure >= 3 ||score < 60)		
+		{
+			punishment = 1;
+			printf("---------------------\r\n");
+			printf("警告: 当前通信质量较差!\r\n");
+			printf("---------------------\r\n");
+		}
+		
+	}
 }
 
 /*===================================================HTTP相关===================================================*/

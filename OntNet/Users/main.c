@@ -52,6 +52,7 @@ int main(void)
 		printf("===================\r\n");
 		printf("\r\n");
 	}	
+
 	iwdg_init(IWDG_PRESCALER_256, 4096 - 1);	/* 初始化看门狗,超时时间大概26s */
 	
 	ESP8266_Init();								/* 网络通信设备ESP8266初始化 */ 

@@ -14,7 +14,7 @@
 #include <stdio.h>
 
 
-#define ESP8266_WIFI_INFO		"AT+CWJAP=\"{WIFIÃû³Æ}\",\"{WIFIÃÜÂë}\"\r\n"
+#define ESP8266_WIFI_INFO		"AT+CWJAP=\"{WIFI Ãû³Æ}\",\"{WIFI ÃÜÂë}\"\r\n"
 
 
 unsigned char esp8266_buf[2048];
