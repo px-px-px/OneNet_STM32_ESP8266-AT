@@ -18,7 +18,7 @@
    * 当接收到平台下发的属性请求后，解析其中请求的属性，并获取设备中的数据，然后响应平台
 ## 工程基础：
    * 正点原子 战舰开发板 基础工程
-   * 正点原子 DHT11 KEY LED TIMER WDG 驱动
+   * 正点原子 DHT11 KEY LED TIMER WDG USART DELAY 等驱动
    * cJSON库
    * 张继瑞 ESP8266 MQTT OneNet 等相关的驱动
 ## 数据类型：
