@@ -5,10 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.3.0]
+## [1.2.1]
 ### Fixed
 - 待修复：无间隔读取DHT11可能会出现各种通信错误的问题
-- 待修复：长时间待机心跳机制出错，而导致断连的问题 
+- 待修复：长时间待机心跳机制出错，而导致断连的问题
+- 待修复：可能出现设备上传数据，平台给出如下错误
+`<{"id":null,"code":2402,"msg":"request format error"}>`
+  此时，平台无法和设备正常交互（请求属性和设置属性都无响应），但设备中仍然为是正常交互中，不会触发重启
 
 ## [1.2.0] - 2025-02-14
 ### Added
