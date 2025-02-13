@@ -47,11 +47,11 @@
 #include "cJSON.h"
 
 
-#define PROID			"7i9b60U2Xz"
+#define PROID			"{产品ID}"
 
-#define ACCESS_KEY		"c0cya0E4YkJYbHBZdmtubzBKVXN5SklPVlZPeDY0T0g="
+#define ACCESS_KEY		"{产品密钥}"
 
-#define DEVICE_NAME		"ESP8266_1"
+#define DEVICE_NAME		"{设备名称}"
 
 
 char devid[16];

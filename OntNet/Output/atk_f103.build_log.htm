@@ -21,7 +21,7 @@ Target DLL:      CMSIS_AGDI.dll V1.28.3.0
 Dialog DLL:      TCM.DLL V1.32.0.0
  
 <h2>Project:</h2>
-D:\..学习\学习代码\STM32HAL库（正点原子-战舰[F103]）\实验\OntNet\完善\Projects\MDK-ARM\atk_f103.uvprojx
+D:\Git_project\px_first\OntNet\Projects\MDK-ARM\atk_f103.uvprojx
 Project File Date:  02/13/2025
 
 <h2>Output:</h2>
@@ -35,10 +35,49 @@ compiling main.c...
 ..\..\Users\main.c(37): warning:  #177-D: variable "len"  was declared but never referenced
   	int len;
 ..\..\Users\main.c: 3 warnings, 0 errors
+compiling esp8266.c...
+..\..\Drivers\EXPAND\OneNet\device\src\esp8266.c(89): warning:  #69-D: integer conversion resulted in truncation
+  	unsigned char timeOut = 400;
+..\..\Drivers\EXPAND\OneNet\device\src\esp8266.c: 1 warning, 0 errors
+compiling onenet.c...
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(549): warning:  #177-D: variable "dataPtr"  was declared but never referenced
+  	char *dataPtr = NULL;
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(550): warning:  #177-D: variable "numBuf"  was declared but never referenced
+  	char numBuf[10];
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(551): warning:  #177-D: variable "num"  was declared but never referenced
+  	int num = 0;
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(689): warning:  #513-D: a value of type "unsigned char *" cannot be assigned to an entity of type "char *"
+  		dataPtr = ESP8266_GetIPD(100);
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(691): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  	OneNet_RevPro(dataPtr);											/* 平台响应 */
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(697): warning:  #513-D: a value of type "unsigned char *" cannot be assigned to an entity of type "char *"
+  		dataPtr = ESP8266_GetIPD(100);
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(699): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  	OneNet_RevPro(dataPtr);											/* 平台响应 */
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(705): warning:  #513-D: a value of type "unsigned char *" cannot be assigned to an entity of type "char *"
+  		dataPtr = ESP8266_GetIPD(100);
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(707): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  	OneNet_RevPro(dataPtr);											/* 平台响应 */
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(822): warning:  #513-D: a value of type "unsigned char *" cannot be assigned to an entity of type "char *"
+  	dataPtr = ESP8266_GetIPD(100);			/* 等待平台响应 */
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(825): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  		OneNet_RevPro(dataPtr);				/* 解析响应 */
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(917): warning:  #177-D: variable "i"  was declared but never referenced
+  	short body_len = 0, i = 0;									/* 标志位 */
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(1022): warning:  #177-D: variable "i"  was declared but never referenced
+  	short body_len = 0, i = 0;									/* 标志位 */
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(1178): warning:  #1166-D: returning pointer to local variable
+  	return package;
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(1207): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  	ESP8266_SendData(package, len);
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c(1210): warning:  #513-D: a value of type "unsigned char *" cannot be assigned to an entity of type "char *"
+  	while(dataPtr == 
+ULL)dataPtr = ESP8266_GetIPD(100);
+..\..\Drivers\EXPAND\OneNet\onenet\src\onenet.c: 16 warnings, 0 errors
 linking...
-Program Size: Code=38364 RO-data=1384 RW-data=92 ZI-data=18940  
+Program Size: Code=38288 RO-data=1380 RW-data=92 ZI-data=18940  
 FromELF: creating hex file...
-"..\..\Output\atk_f103.axf" - 0 Error(s), 3 Warning(s).
+"..\..\Output\atk_f103.axf" - 0 Error(s), 20 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -52,7 +91,7 @@ Package Vendor: Keil
   D:\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:07
 </pre>
 </body>
 </html>
