@@ -1,0 +1,58 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.24.2.0
+Copyright (C) 2017 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: a px, a, LIC=TIVNB-2G7Z8-NNKAF-67R40-6JJC2-8E6L7
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.24.1
+Toolchain Path:  D:\Keil5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 5 (build 528)
+Assembler:       Armasm.exe V5.06 update 5 (build 528)
+Linker/Locator:  ArmLink.exe V5.06 update 5 (build 528)
+Library Manager: ArmAr.exe V5.06 update 5 (build 528)
+Hex Converter:   FromElf.exe V5.06 update 5 (build 528)
+CPU DLL:         SARMCM3.DLL V5.24.1
+Dialog DLL:      DCM.DLL V1.16.0.0
+Target DLL:      CMSIS_AGDI.dll V1.28.3.0
+Dialog DLL:      TCM.DLL V1.32.0.0
+ 
+<h2>Project:</h2>
+D:\..学习\学习代码\STM32HAL库（正点原子-战舰[F103]）\实验\OntNet\完善\Projects\MDK-ARM\atk_f103.uvprojx
+Project File Date:  02/13/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 5 (build 528)', folder: 'D:\Keil5\ARM\ARMCC\Bin'
+Build target 'Template'
+compiling main.c...
+..\..\Users\main.c(144): warning:  #513-D: a value of type "unsigned char *" cannot be assigned to an entity of type "char *"
+  		dataPtr = ESP8266_GetIPD(0);			/* 获取平台响应 */
+..\..\Users\main.c(147): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+  			OneNet_RevPro(dataPtr);				/* 解析响应 */
+..\..\Users\main.c(37): warning:  #177-D: variable "len"  was declared but never referenced
+  	int len;
+..\..\Users\main.c: 3 warnings, 0 errors
+linking...
+Program Size: Code=38364 RO-data=1384 RW-data=92 ZI-data=18940  
+FromELF: creating hex file...
+"..\..\Output\atk_f103.axf" - 0 Error(s), 3 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F1xx_DFP.2.2.0.pack
+                Keil.STM32F1xx_DFP.2.2.0
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_Template
+  D:\Keil5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include
+
+<h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:04
+</pre>
+</body>
+</html>
